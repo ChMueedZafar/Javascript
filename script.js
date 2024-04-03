@@ -1,105 +1,53 @@
-// // Question no 1
-// let p1 = prompt("Entre the First number")
-// let p2 = prompt("Entre the Second number")
+// //  Question no 1
+
+// // write a js program to find maximum number between two numbers
+
+// let p1 = prompt("entre the first price ")
+// let p2 = prompt("entre the second price ")
 
 // if (p1>p2){
 //     console.log("${p1} is greater then ${p2}");
+    
 // }
-// else if (p1<p2){
-//     console.log('$ {p1}isgreater then ${p2}');
+// else if(p1<p2){
+//     console.log("${p2}>${p1}");
 // }
-// else{
-//     alert('${p1}is equal to ${p2}');
+
+// // Question no 2
+// // write a program to find maximum between three numbers
+
+// let p1 = prompt("entre the first number ")
+// let p2 = prompt("entre the second number")
+// let p3 = prompt("entre the thid number")
+
+// if (p1 > p2 && p3){
+//     console.log("p1 > p2 && p3");
 // }
-// // Question 2
-// let price1 = prompt("entre the first number")
-// let price2 =prompt("entre the second number")
-// let price3 =prompt("entre the third number")
-
-// if (price1>price2&&price3){
-//     console.log("${p1}is greater then {p2}&&{p3}");
+// else if (p1 > p3){
+//     console.log("p1 > p3");
 // }
-// JavaScript program to find the maximum between two numbers
+// Question no 3
 
-// Function to find the maximum between two numbers
-function findMax(num1, num2) {
-    if (num1 > num2) {
-        return num1;
-    } else {
-        return num2;
-    }
-}
-// JavaScript program to find the maximum between three numbers
+// write a program to check wheather a number is negative or postive or zero
 
-// Function to find the maximum between three numbers
-function findMax(num1, num2, num3) {
-    let max = num1;
+// function checkNumber(number){
+// if (number>0){
+//     return"postive";
 
-    if (num2 > max) {
-        max = num2;
-    }
+// }
+// else if (number< 0){
+//     return "nagative";
+// }
+// else {
+//     return "zero"
+// }
+// }
+// let num1=10;
+// let num2=-5;
+// let num3=0;
 
-    if (num3 > max) {
-        max = num3;
-    }
-
-    return max;
-}
-
-// Example usage:
-const number1 = 5;
-const number2 = 10;
-const number3 = 8;
-const maxNumber = findMax(number1, number2, number3);
-console.log("The maximum number between", number1 + ",", number2 + ", and", number3, "is:", maxNumber);
+// console.log(num1 + " is " + checkNumber(num1));
+// console.log(num2 + " is " + checkNumber(num2));
+// console.log(num3 + " is " + checkNumber(num3));
 
 
-// JavaScript program to check whether a number is negative, positive, or zero
-
-// Function to determine the sign of a number
-function checkSign(number) {
-    if (number > 0) {
-        return "Positive";
-    } else if (number < 0) {
-        return "Negative";
-    } else {
-        return "Zero";
-    }
-}
-
-// Example usage:
-const num = 10;
-const sign = checkSign(num);
-console.log("The number", num, "is:", sign);
-
-// JavaScript program to check whether a number is divisible by 5 and 11 or not
-
-// Function to check divisibility by 5 and 11
-function checkDivisibility(number) {
-    if (number % 5 === 0 && number % 11 === 0) {
-        return "Divisible by both 5 and 11";
-    } else {
-        return "Not divisible by both 5 and 11";
-    }
-}
-
-// Example usage:
-const num1 = 55;
-const result = checkDivisibility(num);
-console.log("The number", num, "is:", result);
-
-// JavaScript program to check whether a number is even or odd
-
-// Function to check if a number is even or odd
-function checkEvenOrOdd(number) {
-    if (number % 2 === 0) {
-        return "Even";
-    } else {
-        return "Odd";
-    }
-}
-
-// Example usage:
-const num2 = 7;
-const result2 = checkEvenOrOdd(num);
-console.log("The number", num, "is:", result);
