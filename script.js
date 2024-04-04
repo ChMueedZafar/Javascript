@@ -28,26 +28,23 @@
 // }
 // Question no 3
 
-// write a program to check wheather a number is negative or postive or zero
+// write a js program to check wheather a number is negative or postive or zero
 
-// function checkNumber(number){
-// if (number>0){
-//     return"postive";
+function checkNumber(number) {
+    if (number > 0) {
+        return "Positive";
+    } else if (number < 0) {
+        return "Negative";
+    } else {
+        return "Zero";
+    }
+}
 
-// }
-// else if (number< 0){
-//     return "nagative";
-// }
-// else {
-//     return "zero"
-// }
-// }
-// let num1=10;
-// let num2=-5;
-// let num3=0;
+// Example usage:
+const num1 = 10;
+const num2 = -5;
+const num3 = 0;
 
-// console.log(num1 + " is " + checkNumber(num1));
-// console.log(num2 + " is " + checkNumber(num2));
-// console.log(num3 + " is " + checkNumber(num3));
-
-
+console.log(num1 + " is " + checkNumber(num1));
+console.log(num2 + " is " + checkNumber(num2));
+console.log(num3 + " is " + checkNumber(num3));
