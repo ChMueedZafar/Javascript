@@ -30,21 +30,61 @@
 
 // write a js program to check wheather a number is negative or postive or zero
 
-function checkNumber(number) {
-    if (number > 0) {
-        return "Positive";
-    } else if (number < 0) {
-        return "Negative";
+// function checkNumber(number) {
+//     if (number > 0) {
+//         return "Positive";
+//     } else if (number < 0) {
+//         return "Negative";
+//     } else {
+//         return "Zero";
+//     }
+// } 
+
+// // Example usage:
+// const num1 = 10;
+// const num2 = -5;
+// const num3 = 0;
+
+// console.log(num1 + " is " + checkNumber(num1));
+// console.log(num2 + " is " + checkNumber(num2));
+// console.log(num3 + " is " + checkNumber(num3));
+
+// Question No 4
+// Write a js program to check whether a number is divisible by 5 and 11 or not .
+
+// function isdivisibleby5and11(number) {
+//     if (number % 5 === 0 && number % 11 === 0){
+//         return true;
+//     }else{
+//         return false;
+//     }
+// }
+
+// let number1 = 55;
+// let number2 = 25;
+// let number3 = 30;
+
+
+// console.log(number1 + "is divsible by 5 and 11:" + isdivisibleby5and11(number1));
+// console.log(number2 + "is divsible by 5 and 11:" + isdivisibleby5and11(number2));
+// console.log(number3 + "is divsible by 5 and 11:" + isdivisibleby5and11(number3));
+
+// Question no 5
+// Write a js program to check whether a number is even or odd.
+
+function isEvenOrOdd(number) {
+    if (number % 2 === 0) {
+        return "Even";
     } else {
-        return "Zero";
+        return "Odd";
     }
 }
 
-// Example usage:
-const num1 = 10;
-const num2 = -5;
-const num3 = 0;
+// Test the function with some examples
+const number1 = 10;
+const number2 = 7;
+const number3 = 0;
 
-console.log(num1 + " is " + checkNumber(num1));
-console.log(num2 + " is " + checkNumber(num2));
-console.log(num3 + " is " + checkNumber(num3));
+console.log(number1 + " is " + isEvenOrOdd(number1));
+console.log(number2 + " is " + isEvenOrOdd(number2));
+console.log(number3 + " is " + isEvenOrOdd(number3));
