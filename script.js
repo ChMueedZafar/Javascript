@@ -161,10 +161,195 @@ console.log(result);
 // Question no 9
 // Write a js program to input the week number and print weekday.
 
+function getWeekday(weekNumber) {
+    const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    const index = (weekNumber - 1) % 7; // Weekdays repeat every 7 days
+    return weekdays[index];
+}
 
+const weekNumber = parseInt(prompt("Enter the week number:"));
+const weekday = getWeekday(weekNumber);
+console.log("Weekday:", weekday);
 
+// Question no 10
+// Write a js program to input the month number and print the number of days in that month
 
+function getDaysInMonth(monthNumber) {
+    const daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    return daysInMonth[monthNumber - 1];
+}
 
+const monthNumber = parseInt(prompt("Enter the month number (1-12):"));
+if (monthNumber >= 1 && monthNumber <= 12) {
+    const days = getDaysInMonth(monthNumber);
+    console.log(`Number of days in month ${monthNumber}: ${days}`);
+} else {
+    console.log("Invalid month number. Please enter a number between 1 and 12.");
+}
+
+// Questioon no 11
+// Write a js program to count a minimum number of notes in a given amount.
+
+function countNotes(amount) {
+    const denominations = [2000, 500, 200, 100, 50, 20, 10, 5, 2, 1];
+    let notesCount = {};
+
+    for (let denomination of denominations) {
+        if (amount >= denomination) {
+            const count = Math.floor(amount / denomination);
+            notesCount[denomination] = count;
+            amount -= count * denomination;
+        }
+    }
+
+    return notesCount;
+}
+
+const readline = require('readline').createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+readline.question('Enter the amount: ', amount => {
+    const parsedAmount = parseInt(amount);
+
+    if (!isNaN(parsedAmount) && parsedAmount > 0) {
+        const notes = countNotes(parsedAmount);
+        console.log("Minimum number of notes:");
+        for (let denomination in notes) {
+            console.log(`${notes[denomination]} notes of Rs. ${denomination}`);
+        }
+    } else {
+        console.log("Invalid amount. Please enter a positive integer.");
+    }
+
+    readline.close();
+});
+
+// Quetion no 12
+// Write a js program to input marks of five subjects Physics, Chemistry,
+// Biology, Mathematics, and Computer. Calculate percentage and grade
+// according to the following:
+// Percentage >= 90% : Grade A
+// Percentage >= 80% : Grade B
+// Percentage >= 70% : Grade C
+// Percentage >= 60% : Grade D
+// Percentage >= 40% : Grade E
+// Percentage < 40% : Grade F
+
+// Function to calculate percentage
+function calculatePercentage(physics, chemistry, biology, mathematics, computer) {
+    let totalMarks = physics + chemistry + biology + mathematics + computer;
+    let percentage = (totalMarks / 500) * 100;
+    return percentage;
+}
+
+// Function to determine grade
+function calculateGrade(percentage) {
+    let grade;
+    if (percentage >= 90) {
+        grade = 'Grade A';
+    } else if (percentage >= 80) {
+        grade = 'Grade B';
+    } else if (percentage >= 70) {
+        grade = 'Grade C';
+    } else if (percentage >= 60) {
+        grade = 'Grade D';
+    } else if (percentage >= 40) {
+        grade = 'Grade E';
+    } else {
+        grade = 'Grade F';
+    }
+    return grade;
+}
+
+// Input marks for each subject
+let physics = parseInt(prompt("Enter marks for Physics:"));
+let chemistry = parseInt(prompt("Enter marks for Chemistry:"));
+let biology = parseInt(prompt("Enter marks for Biology:"));
+let mathematics = parseInt(prompt("Enter marks for Mathematics:"));
+let computer = parseInt(prompt("Enter marks for Computer:"));
+
+// Calculate percentage
+let percentage = calculatePercentage(physics, chemistry, biology, mathematics, computer);
+
+// Determine grade
+let grade = calculateGrade(percentage);
+
+// Output the result
+console.log("Percentage: " + percentage.toFixed(2) + "%");
+console.log("Grade: " + grade);
+
+// Question no 13
+// Write a js program to input the basic salary of an employee and calculate
+// its Gross salary according to the following:
+// Basic Salary <= 10000 : HRA = 20%, DA = 80%
+// Basic Salary <= 20000 : HRA = 25%, DA = 90%
+// Basic Salary > 20000 : HRA = 30%, DA = 95%
+
+function calculateGrossSalary(basicSalary) {
+    let hra, da;
+
+    if (basicSalary <= 10000) {
+        hra = 0.2 * basicSalary;
+        da = 0.8 * basicSalary;
+    } else if (basicSalary <= 20000) {
+        hra = 0.25 * basicSalary;
+        da = 0.9 * basicSalary;
+    } else {
+        hra = 0.3 * basicSalary;
+        da = 0.95 * basicSalary;
+    }
+
+    const grossSalary = basicSalary + hra + da;
+    return grossSalary;
+}
+
+const basicSalary = parseInt(prompt("Enter the basic salary:"));
+
+if (!isNaN(basicSalary) && basicSalary >= 0) {
+    const grossSalary = calculateGrossSalary(basicSalary);
+    console.log("Gross Salary:", grossSalary);
+} else {
+    console.log("Invalid basic salary. Please enter a non-negative number.");
+}
+
+// Question no 14
+// Write a js program to input electricity unit charges and calculate total
+// electricity bill according to the given condition:
+// For the first 50 units Rs. 0.50/unit
+// For the next 100 units Rs. 0.75/unit
+// For the next 100 units Rs. 1.20/unit
+// For units above 250 Rs. 1.50/unit
+// An additional surcharge of 20% is added to the bill
+
+function calculateElectricityBill(units) {
+    let bill = 0;
+
+    if (units <= 50) {
+        bill = units * 0.50;
+    } else if (units <= 150) {
+        bill = (50 * 0.50) + ((units - 50) * 0.75);
+    } else if (units <= 250) {
+        bill = (50 * 0.50) + (100 * 0.75) + ((units - 150) * 1.20);
+    } else {
+        bill = (50 * 0.50) + (100 * 0.75) + (100 * 1.20) + ((units - 250) * 1.50);
+    }
+
+    // Add 20% surcharge
+    bill *= 1.20;
+
+    return bill;
+}
+
+const units = parseFloat(prompt("Enter the electricity units consumed:"));
+
+if (!isNaN(units) && units >= 0) {
+    const totalBill = calculateElectricityBill(units);
+    console.log("Total electricity bill: Rs.", totalBill.toFixed(2));
+} else {
+    console.log("Invalid input. Please enter a non-negative number of units.");
+}
 
 
 
